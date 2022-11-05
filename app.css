@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* border: 1px black solid; */
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr 40px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+header {
+    height: 125px;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    grid-column: 1/5;
+}
+
+header h1 {
+    color: white;
+    font-size: 50px;
+    margin-left: 25px;
+}
+
+#bookSection {
+    grid-column: 1/4;
+    grid-row: 2/4;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: rgb(77, 80, 97);
+    overflow: scroll;
+    align-items: center;
+}
+
+.informationSection {
+    grid-column: 4/5;
+    padding: 20px;
+}
+
+footer {
+    grid-column: 4/5;
+    grid-row: 3/4;
+    background-color: grey;
+    color: black;
+    display: grid;
+    place-items: center;
+}
+
+.card {
+    height: 225px;
+    width: 225px;
+    background-color: rgb(232, 197, 71);
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.addBook {
+    height: 225px;
+    width: 225px;
+    background-color: rgb(232, 197, 71);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addBook button {
+    width: 125px;
+    height: 75px;
+    font-size: 18px;
+    background-color: rgb(92, 128, 188);
+    border-radius: 20px;;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgb(232, 197, 71);
+}
+
+.bookInfo {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    margin: 20px 0;
+}
+
+.bookInfo div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.readOrNot {
+    height: 50px;
+    width: 120px;
+    background-color: lightcoral;
+    border-radius: 20px;
+    margin-top: 5px;
+    font-size: 1.05em;
+}
+
+.read {
+    background-color: lightgreen;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-info p {
+    font-size: 20px;
+    margin: 5px;
+}
+
+.btnDeleteButton {
+    height: 50px;
+    width: 120px;
+    background-color: grey;
+    border-radius: 20px;
+    margin-top: 5px;
+    font-size: 1.05em;
+}
+
+#screen {
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    opacity: 75%;
+    z-index: 1;
+    position: fixed;
+    display: none;
+}
+
+#form {
+    z-index: 3;
+    height: 100vh;
+    width: 70%;
+    position: absolute;
+    margin-left: 15%;
+    margin-right: 15%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    background-color: white;
+    height: 270px;
+    width: 250px;
+    border-radius: 25px;
+    display: inline-block;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: 1s;
+}
+
+form input {
+    height: 35px;
+    border-radius: 5px;
+}
+
+form button {
+    height: 35px;
+    width: 120px;
+    margin: 0 auto;
+    background-color: rgb(92, 128, 188);
+    border-radius: 10px;
+    font-size: 1.1em;
+    color: white; 
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
