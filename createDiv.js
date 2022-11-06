@@ -25,8 +25,9 @@ function CreateDiv(book, i){
     bookInfo.appendChild(para);
 
     para = document.createElement('button');
-    para.innerHTML = 'Read';
-    para.className = 'readOrNot';
+    readOrNot ? para.classList.add('read') : '';
+    readOrNot ? para.innerHTML = 'Read' : para.innerHTML = 'Not Read';
+    para.classList.add('readOrNot');
     bookInfo.appendChild(para);
 
     para = document.createElement('button');

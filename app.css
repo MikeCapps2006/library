@@ -107,11 +107,13 @@ footer {
     border-radius: 20px;
     margin-top: 5px;
     font-size: 1.05em;
+    color: black;
 }
 
 .read {
     background-color: lightgreen;
 }
+
 
 .card-info {
     display: flex;

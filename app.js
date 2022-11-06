@@ -30,6 +30,24 @@ function addSingleBookToPage(book, i = books.length - 1, title){
     newDiv.style.display = 'flex';
     bookSection.insertBefore(newDiv, addBookSection);
     deleteButtonListener();
+    readButtonListener();
+}
+
+function readButtonListener(){
+    let btnReadButtons = document.getElementsByClassName('readOrNot');
+    for (let i = 0; i < btnReadButtons.length; i ++){
+        btnReadButtons[i].addEventListener('click', toggleRead);
+    }
+}
+
+function toggleRead(e){
+    e.target.classList.contains('read') ? e.target.innerText = 'Not Read' : e.target.innerText = 'Read';
+    let path = e.path[1].childNodes[0].innerText.replace(/['"]+/g, '');
+    let bookToChange = books.find(el => el.title == path);
+    bookToChange.readOrNot = !bookToChange.readOrNot;
+    e.target.classList.toggle('read');
+    
+    updateStats();
 }
 
 function deleteButtonListener(){
@@ -41,7 +59,6 @@ function deleteButtonListener(){
 
 function deleteBook(e){
     e.path[2].remove();
-
     for(let i = 0; i < books.length; i++){ 
         if(books[i].title === e.path[2].dataset.title){ 
             books.splice(i, 1); 
@@ -51,15 +68,6 @@ function deleteBook(e){
 }
 
 
-books.push(TheHobbit);
-books.push(HarryPotter);
-books.push(TheRock);
-books.push(TheHobbit);
-books.push(HarryPotter);
-books.push(TheRock);
-books.push(TheHobbit);
-books.push(HarryPotter);
-books.push(TheRock);
 books.push(TheHobbit);
 books.push(HarryPotter);
 books.push(TheRock);
@@ -87,14 +95,16 @@ function updateStats(){
     totalPages.innerText = addPages();
     completedBooks.innerText = addReadBooks();
     bookCount.innerText = books.length;
+    console.log(books);
 }
 
 
 function addPages(){
     let sum = 0;
     for(let i = 0; i < books.length; i++){
-        console.log(i);
-        sum += books[i].pages;
+        if (books[i].readOrNot){
+            sum += books[i].pages;
+        }
     }
     return sum;
 }
