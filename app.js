@@ -46,7 +46,7 @@ function toggleRead(e){
     let bookToChange = books.find(el => el.title == path);
     bookToChange.readOrNot = !bookToChange.readOrNot;
     e.target.classList.toggle('read');
-    
+
     updateStats();
 }
 
@@ -106,7 +106,7 @@ function addPages(){
             sum += books[i].pages;
         }
     }
-    return sum;
+    return parseInt(sum, 10);
 }
 
 function addReadBooks(){
